@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "154231209338",
+    "firebase_url": "https://yur-sayur-9bc0b-default-rtdb.asia-southeast1.firebasedatabase.app",
+    "project_id": "yur-sayur-9bc0b",
+    "storage_bucket": "yur-sayur-9bc0b.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:154231209338:android:3ee4715bdd5372520a2ac3",
+        "android_client_info": {
+          "package_name": "com.packagesayur.yursayur"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "154231209338-cbh8r1j5rfjn919sojmth406mvihejo3.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDgyA1tcHf8lxvLj1pM0MalduRxJrl1RXI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "154231209338-cbh8r1j5rfjn919sojmth406mvihejo3.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
