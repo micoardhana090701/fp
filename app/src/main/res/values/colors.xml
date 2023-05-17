@@ -2,4 +2,16 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+
+    <color name="primary">#FF36866C</color>
+    <color name="primary_hover">#FF3A9A7B</color>
+    <color name="secondary">#FF5FD068</color>
+    <color name="yellow">#FFF5DF99</color>
+    <color name="cream">#FFF6FBF4</color>
+
+    <color name="text_100">#FF070707</color>
+    <color name="text_80">#FF9BA4A7</color>
+    <color name="text_60">#FFAEB2B1</color>
+    <color name="text_40">#FFD7DAD9</color>
+
 </resources>

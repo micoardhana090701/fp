@@ -59,11 +59,11 @@ class LoginActivity : AppCompatActivity() {
         mAuth.signInWithEmailAndPassword(email, password)
             .addOnCompleteListener(this) {
                 if (it.isSuccessful) {
-                    Toast.makeText(this, "Login Berhasil", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this, "Berhasil Masuk", Toast.LENGTH_SHORT).show()
                     val intent = Intent(this, HomeActivity::class.java)
                     startActivity(intent)
                 } else {
-                    Toast.makeText(this, "Login Gagal", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this, "Gagal Masuk", Toast.LENGTH_SHORT).show()
                 }
             }
 
