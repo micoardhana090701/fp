@@ -52,7 +52,7 @@ class DetailActivity : AppCompatActivity() {
     private lateinit var tvStatus: TextView
     private lateinit var tvLokasi: TextView
     private lateinit var btnBackToHome: ImageView
-    private lateinit var btnChat: Button
+    private lateinit var tvChat: TextView
     private lateinit var btnKunjungi: Button
     private lateinit var etPesan: EditText
     private lateinit var db: FirebaseDatabase
@@ -88,7 +88,7 @@ class DetailActivity : AppCompatActivity() {
         tvLokasi = findViewById(R.id.tvLokasi)
         etPesan = findViewById(R.id.messageEditText)
         btnBackToHome = findViewById(R.id.btnBackToHome)
-        btnChat = findViewById(R.id.btnHubungiPenjual)
+        tvChat = findViewById(R.id.tvHubungiPenjual)
         btnKunjungi = findViewById(R.id.btnKunjungi)
         sendButton = findViewById(R.id.sendButton)
         rvTanggapan = findViewById(R.id.rvTanggapan)
@@ -101,7 +101,7 @@ class DetailActivity : AppCompatActivity() {
         btnBackToHome.setOnClickListener{
             finish()
         }
-        btnChat.setOnClickListener{
+        tvChat.setOnClickListener{
             val btnchat = Intent(this, ChatActivity::class.java)
             startActivity(btnchat)
         }

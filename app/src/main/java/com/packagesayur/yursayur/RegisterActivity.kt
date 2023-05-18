@@ -25,7 +25,7 @@ class RegisterActivity : AppCompatActivity() {
 
         mAuth = FirebaseAuth.getInstance()
 
-        binding.btnBack.setOnClickListener{
+        binding.tvLogin.setOnClickListener{
             finish()
         }
 

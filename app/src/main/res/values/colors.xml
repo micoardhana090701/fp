@@ -7,7 +7,8 @@
     <color name="primary_hover">#FF3A9A7B</color>
     <color name="secondary">#FF5FD068</color>
     <color name="yellow">#FFF5DF99</color>
-    <color name="cream">#FFF6FBF4</color>
+    <color name="cream_1">#FFF6FBF4</color>
+    <color name="cream_2">#FFEDF5E9</color>
 
     <color name="text_100">#FF070707</color>
     <color name="text_80">#FF9BA4A7</color>
