@@ -6,6 +6,8 @@ import android.os.Bundle
 import androidx.fragment.app.Fragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.floatingactionbutton.FloatingActionButton
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.database.core.Context
 import com.packagesayur.yursayur.R
 import com.packagesayur.yursayur.fragments.ChatFragment
 import com.packagesayur.yursayur.fragments.HomeFragment
@@ -25,6 +27,7 @@ class HomeActivity : AppCompatActivity() {
 
         bottomNavigationView = findViewById(R.id.bottomNavigation) as BottomNavigationView
         floatingActionButton = findViewById(R.id.floatingActionButton) as FloatingActionButton
+
 
         bottomNavigationView.setOnItemSelectedListener {
             when (it.itemId) {

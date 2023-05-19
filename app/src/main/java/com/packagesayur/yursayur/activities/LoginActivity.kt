@@ -1,5 +1,6 @@
 package com.packagesayur.yursayur.activities
 
+import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -20,6 +21,8 @@ class LoginActivity : AppCompatActivity() {
         supportActionBar?.hide()
 
         mAuth = FirebaseAuth.getInstance()
+
+
 
         binding.tvRegister.setOnClickListener{
             val intent = Intent(this, RegisterActivity::class.java)
@@ -45,14 +48,21 @@ class LoginActivity : AppCompatActivity() {
                 binding.etEmail.requestFocus()
                 return@setOnClickListener
             }
+
             Login(email, password)
         }
+    }
+    override fun onBackPressed() {
     }
 
     private fun Login(email: String, password: String) {
         mAuth.signInWithEmailAndPassword(email, password)
             .addOnCompleteListener(this) {
                 if (it.isSuccessful) {
+                    val sharedPreferences = getSharedPreferences("login_status", Context.MODE_PRIVATE)
+                    val editor = sharedPreferences.edit()
+                    editor.putBoolean("isLoggedIn", true)
+                    editor.apply()
                     Toast.makeText(this, "Berhasil Masuk", Toast.LENGTH_SHORT).show()
                     val intent = Intent(this, HomeActivity::class.java)
                     startActivity(intent)

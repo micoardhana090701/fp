@@ -1,13 +1,19 @@
 package com.packagesayur.yursayur.activities
 
+import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.text.InputFilter
+import android.text.Spanned
+import android.util.Log
 import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
+import androidx.core.content.ContentProviderCompat.requireContext
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
@@ -20,6 +26,7 @@ import com.google.firebase.ktx.Firebase
 import com.packagesayur.yursayur.R
 import com.packagesayur.yursayur.adapter.TanggapanAdapter
 import com.packagesayur.yursayur.data.sayurdata.Message
+import com.packagesayur.yursayur.databinding.ActivityCartBinding
 import java.util.Date
 
 class DetailActivity : AppCompatActivity() {
@@ -56,6 +63,7 @@ class DetailActivity : AppCompatActivity() {
     private lateinit var sendButton: ImageView
     private lateinit var auth: FirebaseAuth
     private lateinit var rvTanggapan : RecyclerView
+    private lateinit var btnTambahKeranjang : TextView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -88,6 +96,7 @@ class DetailActivity : AppCompatActivity() {
         btnKunjungi = findViewById(R.id.btnKunjungi)
         sendButton = findViewById(R.id.sendButton)
         rvTanggapan = findViewById(R.id.rvTanggapan)
+        btnTambahKeranjang = findViewById(R.id.tvTambahKeranjang)
 
         db = Firebase.database
 
@@ -122,6 +131,10 @@ class DetailActivity : AppCompatActivity() {
                 }
             }
             etPesan.setText("")
+        }
+
+        btnTambahKeranjang.setOnClickListener{
+            showPopupEditor(this)
         }
 
         rvTanggapan.layoutManager = LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
@@ -174,6 +187,50 @@ class DetailActivity : AppCompatActivity() {
     public override fun onPause() {
         adapter.stopListening()
         super.onPause()
+    }
+    fun showPopupEditor(context: Context) {
+        val builder = AlertDialog.Builder(context)
+        val setHarga = intent.getStringExtra(EXTRA_HARGA)
+        val setNamaSayur = intent.getStringExtra(EXTRA_NAME)
+        builder.setTitle(setNamaSayur)
+
+        val input = EditText(context)
+        input.filters = arrayOf(InputFilterNumeric())
+        builder.setView(input)
+
+        builder.setPositiveButton("OK") { _, _ ->
+            val harga = setHarga?.toInt()
+            val userInput = input.text.toString()
+            val intUserInput = userInput.toInt()
+            if (harga != null) {
+                val totalHarga = "${harga * intUserInput}"
+                Toast.makeText(this, "Harga Terong: $totalHarga}", Toast.LENGTH_SHORT).show()
+            }
+        }
+
+        // Tambahkan tombol Batal
+        builder.setNegativeButton("Batal") { dialog, _ ->
+            dialog.cancel()
+        }
+
+        // Tampilkan popup editor
+        builder.show()
+    }
+    class InputFilterNumeric : InputFilter {
+        override fun filter(
+            source: CharSequence?,
+            start: Int,
+            end: Int,
+            dest: Spanned?,
+            dstart: Int,
+            dend: Int
+        ): CharSequence? {
+            val regex = Regex("[0-9]+") // Hanya mengizinkan angka 0-9
+            if (source != null && !regex.matches(source)) {
+                return "" // Menghapus karakter yang tidak sesuai
+            }
+            return null // Membiarkan karakter yang sesuai
+        }
     }
 
 }

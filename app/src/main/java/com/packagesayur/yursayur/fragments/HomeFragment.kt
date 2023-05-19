@@ -1,6 +1,7 @@
 package com.packagesayur.yursayur.fragments
 
 import android.content.Intent
+import android.content.Context
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -70,16 +71,19 @@ class HomeFragment : Fragment() {
 
         // Click profile photo to exit
         ivFotoProfile.setOnClickListener() {
-            FirebaseAuth.getInstance()
-                .signOut()
-                .also {
-                    val intent = Intent(context, LoginActivity::class.java)
-                    startActivity(intent)
-                    activity?.finish()
-                }
-
-            Toast.makeText(context, "Berhasil Keluar", Toast.LENGTH_SHORT).show()
+           logout()
         }
+    }
+
+    private fun logout() {
+        FirebaseAuth.getInstance().signOut()
+        val sharedPreferences = requireContext().getSharedPreferences("login_status", Context.MODE_PRIVATE)
+        val editor = sharedPreferences.edit()
+        editor.putBoolean("isLoggedIn", false)
+        editor.apply()
+        val intent = Intent(requireContext(), LoginActivity::class.java)
+        startActivity(intent)
+        requireActivity().finish()
     }
 
     companion object {
