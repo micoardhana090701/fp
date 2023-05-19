@@ -12,6 +12,7 @@ class RegisterActivity : AppCompatActivity() {
 
     lateinit var binding: ActivityRegisterBinding
     lateinit var mAuth: FirebaseAuth;
+    private var mShouldFinish = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -57,6 +58,7 @@ class RegisterActivity : AppCompatActivity() {
                 binding.etPasswordR.requestFocus()
                 return@setOnClickListener
             }
+            mShouldFinish = true
             RegisterUser(email, password)
         }
     }
@@ -73,6 +75,12 @@ class RegisterActivity : AppCompatActivity() {
                     Toast.makeText(this, "Registrasi Gagal", Toast.LENGTH_SHORT).show()
                 }
             }
+    }
+    override fun onStop() {
+        super.onStop()
+        if (mShouldFinish) {
+            finish()
+        }
     }
 }
 
