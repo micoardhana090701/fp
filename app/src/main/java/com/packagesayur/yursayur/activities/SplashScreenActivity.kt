@@ -37,6 +37,7 @@ class SplashScreenActivity : AppCompatActivity() {
             else{
                 startActivity(Intent(this, LoginActivity::class.java))
             }
+            mShouldFinish = true
         }, timer)
     }
 

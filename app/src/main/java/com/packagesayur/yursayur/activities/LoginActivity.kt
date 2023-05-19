@@ -13,6 +13,7 @@ class LoginActivity : AppCompatActivity() {
 
     lateinit var binding : ActivityLoginBinding
     lateinit var mAuth: FirebaseAuth
+    private var mShouldFinish = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -48,11 +49,9 @@ class LoginActivity : AppCompatActivity() {
                 binding.etEmail.requestFocus()
                 return@setOnClickListener
             }
-
+            mShouldFinish = true
             Login(email, password)
         }
-    }
-    override fun onBackPressed() {
     }
 
     private fun Login(email: String, password: String) {
@@ -71,5 +70,11 @@ class LoginActivity : AppCompatActivity() {
                 }
             }
 
+    }
+    override fun onStop() {
+        super.onStop()
+        if (mShouldFinish) {
+            finish()
+        }
     }
 }
