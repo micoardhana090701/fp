@@ -1,18 +1,12 @@
-package com.packagesayur.yursayur
+package com.packagesayur.yursayur.activities
 
-import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.provider.DocumentsContract.Root
 import android.util.Patterns
-import android.view.View
-import android.view.inputmethod.InputMethodManager
 import android.widget.Toast
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.auth.FirebaseUser
 import com.packagesayur.yursayur.databinding.ActivityLoginBinding
-import com.packagesayur.yursayur.databinding.ActivitySplashBinding
 
 class LoginActivity : AppCompatActivity() {
 

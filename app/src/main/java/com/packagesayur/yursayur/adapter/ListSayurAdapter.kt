@@ -9,7 +9,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
-import com.packagesayur.yursayur.DetailActivity
+import com.packagesayur.yursayur.activities.DetailActivity
 import com.packagesayur.yursayur.R
 import com.packagesayur.yursayur.data.sayurdata.SayurEntity
 

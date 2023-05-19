@@ -1,8 +1,9 @@
-package com.packagesayur.yursayur
+package com.packagesayur.yursayur.activities
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.TextView
+import com.packagesayur.yursayur.R
 
 class TokoActivity : AppCompatActivity() {
 

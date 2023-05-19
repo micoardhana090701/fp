@@ -1,12 +1,11 @@
-package com.packagesayur.yursayur
+package com.packagesayur.yursayur.activities
 
 import android.annotation.SuppressLint
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
-import androidx.lifecycle.ViewModel
-import com.packagesayur.yursayur.databinding.ActivitySplashBinding
+import com.packagesayur.yursayur.R
 
 @SuppressLint("CustomSplashScreen")
 class SplashScreenActivity : AppCompatActivity() {
