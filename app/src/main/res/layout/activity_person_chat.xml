@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activities.ChatActivity">
+    tools:context=".activities.PersonChatActivity">
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
@@ -18,7 +18,7 @@
             android:layout_height="match_parent">
 
             <ImageView
-                android:id="@+id/btnBackToHome4"
+                android:id="@+id/btnBackToHome3"
                 android:layout_width="24dp"
                 android:layout_height="24dp"
                 android:layout_margin="24dp"
@@ -28,24 +28,23 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <de.hdodenhof.circleimageview.CircleImageView
-                android:id="@+id/ivProfilePedagang"
+                android:id="@+id/ivProfilePerson"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
                 android:layout_marginStart="24dp"
                 android:src="@drawable/img_2"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/btnBackToHome4"
+                app:layout_constraintStart_toEndOf="@+id/btnBackToHome3"
                 app:layout_constraintTop_toTopOf="parent" />
-
             <TextView
-                android:id="@+id/tvNamaChatPerson"
+                android:id="@+id/tvNamaPerson"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Nama"
                 android:layout_margin="24dp"
                 android:textColor="@color/white"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/ivProfilePedagang"
+                app:layout_constraintStart_toEndOf="@+id/ivProfilePerson"
                 app:layout_constraintTop_toTopOf="parent" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>
@@ -64,7 +63,7 @@
             android:layout_margin="7dp">
 
             <TextView
-                android:id="@+id/tvDeskripsiChatPedagang"
+                android:id="@+id/tvDeskripsiChatPerson"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Hallo world"
@@ -75,7 +74,7 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
-                android:id="@+id/tvWaktuChatPedagang"
+                android:id="@+id/tvTimePerson"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="20.30"

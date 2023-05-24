@@ -68,23 +68,9 @@ class HomeFragment : Fragment() {
         list.addAll(SayurData.listData)
         showRecyclerSayurList()
         showRecyclerBuahList()
-
-        // Click profile photo to exit
-        ivFotoProfile.setOnClickListener() {
-           logout()
-        }
     }
 
-    private fun logout() {
-        FirebaseAuth.getInstance().signOut()
-        val sharedPreferences = requireContext().getSharedPreferences("login_status", Context.MODE_PRIVATE)
-        val editor = sharedPreferences.edit()
-        editor.putBoolean("isLoggedIn", false)
-        editor.apply()
-        val intent = Intent(requireContext(), LoginActivity::class.java)
-        startActivity(intent)
-        requireActivity().finish()
-    }
+
 
     companion object {
         /**

@@ -1,11 +1,19 @@
 package com.packagesayur.yursayur.fragments
 
+import android.app.Notification
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.packagesayur.yursayur.R
+import com.packagesayur.yursayur.adapter.ListSayurAdapter
+import com.packagesayur.yursayur.adapter.NotificationAdapter
+import com.packagesayur.yursayur.data.sayurdata.SayurEntity
+import com.packagesayur.yursayur.notificationdata.NotificationData
+import com.packagesayur.yursayur.notificationdata.NotificationEntity
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -21,6 +29,8 @@ class NotificationFragment : Fragment() {
     // TODO: Rename and change types of parameters
     private var param1: String? = null
     private var param2: String? = null
+    private lateinit var rvNotification: RecyclerView
+    private var list : ArrayList<NotificationEntity> = arrayListOf()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -56,5 +66,20 @@ class NotificationFragment : Fragment() {
                     putString(ARG_PARAM2, param2)
                 }
             }
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        rvNotification = view.findViewById(R.id.rvNotification)
+        rvNotification.setHasFixedSize(true)
+
+        list.addAll(NotificationData.listNotification)
+        showRecyclerNotification()
+    }
+
+    private fun showRecyclerNotification() {
+        rvNotification.layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
+        val notificationAdapter = NotificationAdapter(list)
+        rvNotification.adapter = notificationAdapter
     }
 }

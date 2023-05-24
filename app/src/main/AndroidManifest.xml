@@ -15,6 +15,15 @@
         android:theme="@style/Theme.YurSayur"
         tools:targetApi="31">
         <activity
+            android:name=".activities.PersonChatActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.EndTransactionActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.CheckOutActivity"
+            android:exported="false" />
+        <activity
             android:name=".activities.CartActivity"
             android:exported="false" />
         <activity

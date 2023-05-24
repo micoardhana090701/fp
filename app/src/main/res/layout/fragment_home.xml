@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:paddingTop="24dp"
+    android:layout_marginBottom="70dp"
     tools:context=".fragments.HomeFragment">
 
     <!-- TODO: Update blank fragment layout -->
@@ -25,7 +26,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Hello,\nMamanya Mia!"
+                android:text="Hello,\nMegaChan!!"
                 style="@style/Title1" />
 
             <androidx.cardview.widget.CardView
@@ -39,7 +40,7 @@
                     android:layout_width="60dp"
                     android:layout_height="60dp"
                     android:scaleType="centerCrop"
-                    android:src="@drawable/img_1" />
+                    android:src="@drawable/img_16" />
 
             </androidx.cardview.widget.CardView>
 

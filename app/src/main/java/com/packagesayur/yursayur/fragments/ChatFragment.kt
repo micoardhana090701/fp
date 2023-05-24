@@ -5,7 +5,15 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
+import androidx.core.view.ViewCompat
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.packagesayur.yursayur.R
+import com.packagesayur.yursayur.adapter.ChatAdapter
+import com.packagesayur.yursayur.chatdata.ChatData
+import com.packagesayur.yursayur.chatdata.ChatEntity
+import com.packagesayur.yursayur.data.sayurdata.SayurData
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -21,6 +29,8 @@ class ChatFragment : Fragment() {
     // TODO: Rename and change types of parameters
     private var param1: String? = null
     private var param2: String? = null
+    private lateinit var rvChat: RecyclerView
+    private var listDataChat : ArrayList<ChatEntity> = arrayListOf()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -45,7 +55,7 @@ class ChatFragment : Fragment() {
          *
          * @param param1 Parameter 1.
          * @param param2 Parameter 2.
-         * @return A new instance of fragment ChatFragment.
+         * @return A new instance of fragment HomeFragment.
          */
         // TODO: Rename and change types and number of parameters
         @JvmStatic
@@ -56,5 +66,20 @@ class ChatFragment : Fragment() {
                     putString(ARG_PARAM2, param2)
                 }
             }
+    }
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        rvChat = view.findViewById(R.id.rvChat)
+        rvChat.setHasFixedSize(true)
+
+        listDataChat.addAll(ChatData.listChatData)
+        showRecycleChat()
+    }
+
+    private fun showRecycleChat() {
+        rvChat.layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
+        val listChatAdapter = ChatAdapter(listDataChat)
+        rvChat.adapter = listChatAdapter
     }
 }
