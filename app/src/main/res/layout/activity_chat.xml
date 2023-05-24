@@ -53,7 +53,10 @@
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="24dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginLeft="24dp"
+        android:layout_marginBottom="24dp"
+        android:layout_marginRight="56dp"
         app:cardBackgroundColor="@color/primary"
         app:cardCornerRadius="10dp"
         app:layout_constraintBottom_toTopOf="@+id/linearLayout2">
@@ -61,13 +64,13 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_margin="7dp">
+            android:layout_margin="12dp">
 
             <TextView
                 android:id="@+id/tvDeskripsiChatPedagang"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Hallo world"
+                android:text="Hallo world Hallo worldHallo worldHallo worldHallo worldHallo worldHallo worldHallo worldHallo worldHallo worldHallo world"
                 android:textAlignment="textStart"
                 android:textColor="@color/white"
                 android:textSize="14dp"
@@ -82,7 +85,7 @@
                 android:textColor="@color/white"
                 android:textSize="12dp"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/tvDeskripsiChatPerson" />
+                app:layout_constraintTop_toBottomOf="@+id/tvDeskripsiChatPedagang" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </androidx.cardview.widget.CardView>
@@ -96,7 +99,7 @@
 
         <EditText
             android:id="@+id/messageEditText"
-            android:layout_width="0dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_margin="7dp"
@@ -106,7 +109,7 @@
             android:inputType="text"
             android:minHeight="48dp"
 
-            android:padding="10dp"
+            android:padding="14dp"
             android:textSize="12dp" />
 
         <View
